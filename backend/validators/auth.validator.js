@@ -26,13 +26,7 @@ export const validateRegistration = () => {
       .withMessage('Password must be at least 6 characters long'),
     body('confirmPassword')
       .notEmpty()
-      .withMessage('Confirm password is required')
-      .custom((value, { req }) => {
-        if (value !== req.body.password) {
-          throw new Error('Passwords do not match');
-        }
-        return true;
-      }),
+      .withMessage('Confirm password is required'),
   ];
 };
 
